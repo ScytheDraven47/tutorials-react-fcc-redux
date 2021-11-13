@@ -1,0 +1,4 @@
+export const ADJUST_AMOUNT = 'ADJUST_AMOUNT'
+export const REMOVE_ITEM = 'REMOVE_ITEM'
+export const CLEAR_CART = 'CLEAR_CART'
+export const UPDATE_TOTALS = 'UPDATE_TOTALS'

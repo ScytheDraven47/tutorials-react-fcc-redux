@@ -12,7 +12,7 @@ import reducer from './reducer'
 import { Provider } from 'react-redux'
 
 const initialStore = {
-	cart: [],
+	cart: cartItems,
 	total_items: 0,
 	total_price: 0,
 }
@@ -25,7 +25,7 @@ function App() {
 	return (
 		<Provider store={store}>
 			<Navbar />
-			<CartContainer cart={cartItems} />
+			<CartContainer />
 		</Provider>
 	)
 }

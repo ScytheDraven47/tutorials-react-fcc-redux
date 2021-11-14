@@ -12,14 +12,16 @@ const reducer = (state, action) => {
 			const { id: idToAdjust, value: amount } = action.payload
 			return {
 				...state,
-				cart: state.cart.map((item) => {
-					if (item.id === idToAdjust)
-						return {
-							...item,
-							amount: item.amount + amount,
-						}
-					return item
-				}),
+				cart: state.cart
+					.map((item) => {
+						if (item.id === idToAdjust)
+							return {
+								...item,
+								amount: item.amount + amount,
+							}
+						return item
+					})
+					.filter((item) => item.amount > 0),
 			}
 		case REMOVE_ITEM:
 			const { id: idToRemove } = action.payload

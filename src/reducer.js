@@ -34,16 +34,18 @@ const reducer = (state, action) => {
 				cart: [],
 			}
 		case UPDATE_TOTALS:
+			const { total_items, total_price } = state.cart.reduce(
+				(acc, item) => ({
+					total_items: acc.total_items + item.amount,
+					total_price: acc.total_price + item.amount * item.price,
+				}),
+				{ total_items: 0, total_price: 0 }
+			)
+
 			return {
 				...state,
-				total_items: state.cart.reduce(
-					(acc, item) => acc + item.amount,
-					0
-				),
-				total_price: state.cart.reduce(
-					(acc, item) => acc + item.amount * item.price,
-					0
-				),
+				total_items,
+				total_price,
 			}
 		default:
 			if (!action.type.startsWith('@@redux'))

@@ -4,8 +4,15 @@ import {
 	CLEAR_CART,
 	UPDATE_TOTALS,
 } from './actions'
+import cartItems from './cart-items'
 
-const reducer = (state, action) => {
+const initialStore = {
+	cart: cartItems,
+	total_items: 0,
+	total_price: 0,
+}
+
+const reducer = (state = initialStore, action) => {
 	switch (action.type) {
 		case ADJUST_AMOUNT:
 			const { id: idToAdjust, value: amount } = action.payload

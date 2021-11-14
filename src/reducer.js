@@ -6,7 +6,6 @@ import {
 } from './actions'
 
 const reducer = (state, action) => {
-	console.log({ state, action })
 	switch (action.type) {
 		case ADJUST_AMOUNT:
 			const { id: idToAdjust, value: amount } = action.payload
